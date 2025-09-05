@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: issue-service
+  r2dbc:
+    url: r2dbc:mysql://database-1.cdggog0emecz.ap-southeast-2.rds.amazonaws.com:3306/smart_city
+    username: admin
+    password: smart_city
+    pool:
+      enabled: true
+      max-size: 20
+      initial-size: 10
+      max-idle-time: 30m
+server:
+  port: 8082
+logging:
+  level:
+    org.springframework.r2dbc.core: DEBUG
+    io.r2dbc.spi: DEBUG
+jwt:
+  token-expiration-seconds: 1800
+  secret-key: wJ3p8vQ2bX9rT6s1eF4gH7kLmN0qR3tYz5uW8xA2cD5fG8jK1lP0sV3bN6mQ9rT2w
+
+smart_city:
+  services:
+    user-service: http://localhost:8081
+    issue-service: http://localhost:8082
+    staff-service: http://localhost:8083
+    location-service: http://localhost:8084
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

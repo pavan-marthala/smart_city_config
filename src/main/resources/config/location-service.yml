@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: location-service
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    url: jdbc:mysql://database-1.cdggog0emecz.ap-southeast-2.rds.amazonaws.com:3306/smart_city_location
+    user: admin
+    password: smart_city
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  r2dbc:
+    url: r2dbc:mysql://database-1.cdggog0emecz.ap-southeast-2.rds.amazonaws.com:3306/smart_city_location
+    username: admin
+    password: smart_city
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    pool:
+      enabled: true
+      max-size: 20
+      initial-size: 10
+      max-idle-time: 30m
+  test:
+    database:
+      replace: none
+server:
+  port: 8084
+logging:
+  level:
+    org.springframework.r2dbc.core: DEBUG
+    io.r2dbc.spi: DEBUG
+jwt:
+  token-expiration-seconds: 31536000
+  secret-key: wJ3p8vQ2bX9rT6s1eF4gH7kLmN0qR3tYz5uW8xA2cD5fG8jK1lP0sV3bN6mQ9rT2w
+smart_city:
+  services:
+    user-service: http://localhost:8081
+    issue-service: http://localhost:8082
+    staff-service: http://localhost:8083
+    location-service: http://localhost:8084
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
