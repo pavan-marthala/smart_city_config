@@ -31,10 +31,14 @@ jwt:
   secret-key: wJ3p8vQ2bX9rT6s1eF4gH7kLmN0qR3tYz5uW8xA2cD5fG8jK1lP0sV3bN6mQ9rT2w
 smart_city:
   services:
-    user-service: http://localhost:8081
-    issue-service: http://localhost:8082
-    staff-service: http://localhost:8083
-    location-service: http://localhost:8084
+    user-service:
+      url: http://localhost:8081
+    issue-service:
+      url: http://localhost:8082
+    staff-service:
+      url: http://localhost:8083
+    location-service:
+      url: http://localhost:8084
 
 eureka:
   client:

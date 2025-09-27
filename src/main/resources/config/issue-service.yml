@@ -22,10 +22,14 @@ jwt:
 
 smart_city:
   services:
-    user-service: http://localhost:8081
-    issue-service: http://localhost:8082
-    staff-service: http://localhost:8083
-    location-service: http://localhost:8084
+    user-service:
+      url: http://localhost:8081
+    issue-service:
+      url: http://localhost:8082
+    staff-service:
+      url: http://localhost:8083
+    location-service:
+      url: http://localhost:8084
 eureka:
   client:
     service-url:
