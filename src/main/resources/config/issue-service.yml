@@ -1,9 +1,16 @@
 spring:
   application:
     name: issue-service
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    url: jdbc:mysql://database-1.cdggog0emecz.ap-southeast-2.rds.amazonaws.com:3306/smart_city_issue
+    user: admin
+    password: smart_city
+    driver-class-name: com.mysql.cj.jdbc.Driver
   r2dbc:
-    url: r2dbc:mysql://database-1.cdggog0emecz.ap-southeast-2.rds.amazonaws.com:3306/smart_city
+    url: r2dbc:mysql://database-1.cdggog0emecz.ap-southeast-2.rds.amazonaws.com:3306/smart_city_issue
     username: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
     password: smart_city
     pool:
       enabled: true
